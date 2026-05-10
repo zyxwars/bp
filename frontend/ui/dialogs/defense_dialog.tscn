@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dhifipw3hsgp7"]
+
+[ext_resource type="Script" uid="uid://b4bsdrvp8o7xb" path="res://ui/dialogs/defense_dialog.gd" id="1_umv7c"]
+[ext_resource type="PackedScene" uid="uid://bdxsqwquejg0c" path="res://ui/common/dialog.tscn" id="2_5v2sh"]
+[ext_resource type="PackedScene" uid="uid://c2ysj462a525w" path="res://ui/common/player_picker.tscn" id="4_2xxtt"]
+[ext_resource type="PackedScene" uid="uid://lm5v78efgrvf" path="res://ui/common/hint_label.tscn" id="5_sre88"]
+[ext_resource type="PackedScene" uid="uid://wk5sbxatqx5" path="res://ui/common/submit_button.tscn" id="6_cgq0d"]
+[ext_resource type="Texture2D" uid="uid://cu1fqhrlqm4qh" path="res://assets/icons/shield.svg" id="7_6hbro"]
+
+[node name="DefenseDialog" type="Control" unique_id=1190784144]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_umv7c")
+
+[node name="Dialog" parent="." unique_id=66265892 instance=ExtResource("2_5v2sh")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -125.5
+offset_right = 272.0
+offset_bottom = 125.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Info" parent="Dialog/MarginContainer/VBoxContainer/Content" parent_id_path=PackedInt32Array(66265892, 49802641) index="0" unique_id=1541884980 instance=ExtResource("5_sre88")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Info2" parent="Dialog/MarginContainer/VBoxContainer/Content" parent_id_path=PackedInt32Array(66265892, 49802641) index="1" unique_id=259648368 instance=ExtResource("5_sre88")]
+layout_mode = 2
+text = "Invite Allies:"
+
+[node name="InvitePicker" parent="Dialog/MarginContainer/VBoxContainer/Content" parent_id_path=PackedInt32Array(66265892, 49802641) index="2" unique_id=843965709 instance=ExtResource("4_2xxtt")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="Dialog/MarginContainer/VBoxContainer/Content" parent_id_path=PackedInt32Array(66265892, 49802641) index="3" unique_id=405355374]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextEdit" type="TextEdit" parent="Dialog/MarginContainer/VBoxContainer/Content" parent_id_path=PackedInt32Array(66265892, 49802641) index="4" unique_id=1603717745]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+placeholder_text = "Add message to public discussion"
+wrap_mode = 1
+
+[node name="SubmitButton" parent="Dialog/MarginContainer/VBoxContainer/Buttons" parent_id_path=PackedInt32Array(66265892, 1298444312) index="0" unique_id=1619861871 instance=ExtResource("6_cgq0d")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Submit"
+icon = ExtResource("7_6hbro")
+
+[node name="Icon" parent="Dialog/Control/Title/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(66265892, 744011408) index="0" unique_id=917818684]
+texture = ExtResource("7_6hbro")
+
+[node name="Title" parent="Dialog/Control/Title/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(66265892, 744011408) index="1" unique_id=2141720592]
+text = "Defense"
+
+[editable path="Dialog"]

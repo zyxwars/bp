@@ -1,0 +1,4 @@
+pnpm:
+  minimumReleaseAge: 20160
+  trustPolicy: no-downgrade
+  blockExoticSubdeps: true

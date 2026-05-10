@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://nm2b45o07nu"]
+
+[ext_resource type="Script" uid="uid://b4ef6fpkmfdxh" path="res://ui/dialogs/exploration_dialog.gd" id="1_gapef"]
+[ext_resource type="Texture2D" uid="uid://cg84g0rc8vaev" path="res://assets/icons/anchor.svg" id="2_a0ir5"]
+[ext_resource type="PackedScene" uid="uid://bdxsqwquejg0c" path="res://ui/common/dialog.tscn" id="2_l4w2d"]
+[ext_resource type="PackedScene" uid="uid://lm5v78efgrvf" path="res://ui/common/hint_label.tscn" id="6_faro2"]
+[ext_resource type="PackedScene" uid="uid://wk5sbxatqx5" path="res://ui/common/submit_button.tscn" id="8_faro2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04ecw"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o17sh"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[node name="ExplorationDialog" type="Control" unique_id=718120999]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_gapef")
+
+[node name="Dialog" parent="." unique_id=66265892 instance=ExtResource("2_l4w2d")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -89.0
+offset_right = 272.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HintLabel" parent="Dialog/MarginContainer/VBoxContainer/Content" parent_id_path=PackedInt32Array(66265892, 49802641) index="0" unique_id=259648368 instance=ExtResource("6_faro2")]
+layout_mode = 2
+text = "Move the slider to split ships between home (combat) and exploration (income)"
+
+[node name="Count" type="HSlider" parent="Dialog/MarginContainer/VBoxContainer/Content" parent_id_path=PackedInt32Array(66265892, 49802641) index="1" unique_id=1652331755]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_04ecw")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_o17sh")
+rounded = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Dialog/MarginContainer/VBoxContainer/Content" parent_id_path=PackedInt32Array(66265892, 49802641) index="2" unique_id=1901789481]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content/HBoxContainer" unique_id=1383572513]
+layout_mode = 2
+text = "Ships at home:"
+
+[node name="HomeCount" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content/HBoxContainer" unique_id=1211657624]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1"
+
+[node name="Control" type="Control" parent="Dialog/MarginContainer/VBoxContainer/Content/HBoxContainer" unique_id=1862135896]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content/HBoxContainer" unique_id=165973167]
+layout_mode = 2
+text = "Exploring ships:"
+
+[node name="ExploreCount" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content/HBoxContainer" unique_id=1658506997]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1"
+
+[node name="HSeparator2" type="HSeparator" parent="Dialog/MarginContainer/VBoxContainer/Content" parent_id_path=PackedInt32Array(66265892, 49802641) index="3" unique_id=877465228]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextEdit" type="TextEdit" parent="Dialog/MarginContainer/VBoxContainer/Content" parent_id_path=PackedInt32Array(66265892, 49802641) index="4" unique_id=847817711]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+placeholder_text = "Add message to public discussion"
+wrap_mode = 1
+
+[node name="SubmitButton" parent="Dialog/MarginContainer/VBoxContainer/Buttons" parent_id_path=PackedInt32Array(66265892, 1298444312) index="0" unique_id=1619861871 instance=ExtResource("8_faro2")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Continue"
+
+[node name="Icon" parent="Dialog/Control/Title/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(66265892, 744011408) index="0" unique_id=917818684]
+texture = ExtResource("2_a0ir5")
+
+[node name="Title" parent="Dialog/Control/Title/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(66265892, 744011408) index="1" unique_id=2141720592]
+text = "Exploration"
+
+[node name="CloseButton" parent="Dialog/Control" parent_id_path=PackedInt32Array(66265892, 1090258654) index="1" unique_id=1248636943]
+visible = false
+
+[editable path="Dialog"]

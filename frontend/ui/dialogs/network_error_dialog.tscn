@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://wp7aix1jx2qa"]
+
+[ext_resource type="Script" uid="uid://d3qf4nxovcin8" path="res://ui/dialogs/network_error_dialog.gd" id="1_5sk1a"]
+[ext_resource type="Theme" uid="uid://brryrwy431s5k" path="res://ui/common/theme.tres" id="1_l5ws4"]
+[ext_resource type="Texture2D" uid="uid://cm622lpyht8qf" path="res://assets/icons/refresh.svg" id="2_bjvem"]
+[ext_resource type="StyleBox" uid="uid://xwx28lf622f8" path="res://ui/common/container.stylebox" id="2_u01py"]
+
+[node name="NetworkErrorDialog" type="PanelContainer" unique_id=879876917]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_l5ws4")
+theme_override_styles/panel = ExtResource("2_u01py")
+script = ExtResource("1_5sk1a")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=890984219]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1729571310]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1269346110]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+text = "Connection to the server failed."
+autowrap_mode = 3
+
+[node name="Hint" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1677821295]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+text = "Check your internet connection and press 'Retry connection'"
+autowrap_mode = 3
+
+[node name="Error" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1400637554]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="RetryButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2012531083]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Retry connection"
+icon = ExtResource("2_bjvem")

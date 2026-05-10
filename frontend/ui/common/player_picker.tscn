@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c2ysj462a525w"]
+
+[ext_resource type="Script" uid="uid://cidm15airbw6c" path="res://ui/common/player_picker.gd" id="1_emr3j"]
+
+[node name="PlayerPicker" type="HBoxContainer" unique_id=272580222]
+offset_right = 304.0
+offset_bottom = 64.0
+theme_override_constants/separation = 16
+script = ExtResource("1_emr3j")
+
+[node name="PlayerPickerItem" parent="." unique_id=1332798590 instance_placeholder="res://ui/common/player_picker_item.tscn"]
+layout_mode = 2
+
+[node name="PlayerPickerItem2" parent="." unique_id=975745878 instance_placeholder="res://ui/common/player_picker_item.tscn"]
+layout_mode = 2
+
+[node name="PlayerPickerItem3" parent="." unique_id=890019522 instance_placeholder="res://ui/common/player_picker_item.tscn"]
+layout_mode = 2
+
+[node name="PlayerPickerItem4" parent="." unique_id=138692878 instance_placeholder="res://ui/common/player_picker_item.tscn"]
+layout_mode = 2

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://8sfcn2vl763j"]
+
+[ext_resource type="Texture2D" uid="uid://bu6oqaev1dljg" path="res://assets/icons/send.svg" id="1_2g4ew"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ohs3"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.3019608, 0.5568628, 0.78039217, 1)
+border_width_bottom = 2
+border_color = Color(0.22145814, 0.45353842, 0.65361756, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+shadow_color = Color(0, 0, 0, 0.2509804)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+
+[node name="SubmitButton" type="Button" unique_id=1619861871]
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ohs3")
+text = "Send"
+icon = ExtResource("1_2g4ew")

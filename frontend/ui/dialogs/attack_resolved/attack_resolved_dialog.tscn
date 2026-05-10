@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://cj4wi42y2jnp2"]
+
+[ext_resource type="Theme" uid="uid://brryrwy431s5k" path="res://ui/common/theme.tres" id="1_fxg1j"]
+[ext_resource type="Script" uid="uid://cfot52shfcbj3" path="res://ui/dialogs/attack_resolved/attack_resolved_dialog.gd" id="3_joua3"]
+[ext_resource type="StyleBox" uid="uid://xwx28lf622f8" path="res://ui/common/container.stylebox" id="3_pmr35"]
+[ext_resource type="Texture2D" uid="uid://c3iiaennbywk1" path="res://assets/icons/sword.svg" id="4_23hqw"]
+[ext_resource type="Script" uid="uid://bwvlle6i6wojv" path="res://ui/common/dialog.gd" id="4_u2vmb"]
+[ext_resource type="PackedScene" uid="uid://wk5sbxatqx5" path="res://ui/common/submit_button.tscn" id="5_oimsi"]
+[ext_resource type="PackedScene" uid="uid://d2d40vcltaew8" path="res://ui/common/close_button.tscn" id="8_sndp7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86rje"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.30336243, 0.5571347, 0.7797828, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+shadow_color = Color(0, 0, 0, 0.2509804)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f7cga"]
+font_size = 20
+
+[node name="AttackResolvedDialog" type="Control" unique_id=491340437]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_fxg1j")
+script = ExtResource("3_joua3")
+
+[node name="Dialog" type="PanelContainer" parent="." unique_id=66265892]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -35.5
+offset_right = 256.0
+offset_bottom = 35.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fxg1j")
+theme_override_styles/panel = ExtResource("3_pmr35")
+script = ExtResource("4_u2vmb")
+
+[node name="MarginContainer" type="MarginContainer" parent="Dialog" unique_id=1229367854]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Dialog/MarginContainer" unique_id=63976594]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Content" type="VBoxContainer" parent="Dialog/MarginContainer/VBoxContainer" unique_id=49802641]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content" unique_id=79745161]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="Dialog/MarginContainer/VBoxContainer/Content" unique_id=189638941]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Dialog/MarginContainer/VBoxContainer/Content" unique_id=1304265961]
+layout_mode = 2
+
+[node name="Attackers" type="VBoxContainer" parent="Dialog/MarginContainer/VBoxContainer/Content/HBoxContainer3" unique_id=1933954796]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Dialog/MarginContainer/VBoxContainer/Content/HBoxContainer3" unique_id=702795978]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content/HBoxContainer3/VBoxContainer3" unique_id=67781331]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "VS"
+
+[node name="Defenders" type="VBoxContainer" parent="Dialog/MarginContainer/VBoxContainer/Content/HBoxContainer3" unique_id=874648979]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Dialog/MarginContainer/VBoxContainer" unique_id=1298444312]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 8
+
+[node name="SubmitButton" parent="Dialog/MarginContainer/VBoxContainer/Buttons" unique_id=1619861871 instance=ExtResource("5_oimsi")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Close"
+
+[node name="Control" type="Control" parent="Dialog" unique_id=1090258654]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Title" type="PanelContainer" parent="Dialog/Control" unique_id=977697497]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -109.0
+offset_top = -24.5
+offset_right = 109.0
+offset_bottom = 19.5
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_86rje")
+
+[node name="MarginContainer" type="MarginContainer" parent="Dialog/Control/Title" unique_id=1873611648]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Dialog/Control/Title/MarginContainer" unique_id=744011408]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Dialog/Control/Title/MarginContainer/HBoxContainer" unique_id=917818684]
+layout_mode = 2
+texture = ExtResource("4_23hqw")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Title" type="Label" parent="Dialog/Control/Title/MarginContainer/HBoxContainer" unique_id=2141720592]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Attackers won"
+label_settings = SubResource("LabelSettings_f7cga")
+
+[node name="CloseButton" parent="Dialog/Control" unique_id=1248636943 instance=ExtResource("8_sndp7")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 20.0
+grow_horizontal = 0

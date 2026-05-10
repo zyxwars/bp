@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://d0nc7w2ogbptb"]
+
+[ext_resource type="Texture2D" uid="uid://c3iiaennbywk1" path="res://assets/icons/sword.svg" id="1_ckxik"]
+[ext_resource type="Script" uid="uid://djb87otmhg0sd" path="res://ui/dialogs/attack_side_dialog.gd" id="1_ht85m"]
+[ext_resource type="PackedScene" uid="uid://bdxsqwquejg0c" path="res://ui/common/dialog.tscn" id="3_d1y6l"]
+[ext_resource type="PackedScene" uid="uid://lm5v78efgrvf" path="res://ui/common/hint_label.tscn" id="4_5qgp5"]
+[ext_resource type="PackedScene" uid="uid://wk5sbxatqx5" path="res://ui/common/submit_button.tscn" id="5_75kwd"]
+[ext_resource type="Texture2D" uid="uid://cu1fqhrlqm4qh" path="res://assets/icons/shield.svg" id="5_d1y6l"]
+[ext_resource type="Texture2D" uid="uid://b4f8tujw6tti3" path="res://assets/icons/neutral.svg" id="6_75kwd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_an46g"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.43358162, 0.723318, 0.38512114, 1)
+border_width_bottom = 2
+border_color = Color(0.32419813, 0.5593159, 0.28612503, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(0, 0, 0, 0.2509804)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcbli"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.43358162, 0.723318, 0.38512114, 1)
+border_width_bottom = 2
+border_color = Color(0.32419813, 0.5593159, 0.28612503, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(0, 0, 0, 0.2509804)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pqa77"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.43358162, 0.723318, 0.38512114, 1)
+border_width_bottom = 2
+border_color = Color(0.32419813, 0.5593159, 0.28612503, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(0, 0, 0, 0.2509804)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5qgp5"]
+load_path = "res://.godot/imported/sword.svg-36053a264fd39ce22b93b188d1f662d1.ctex"
+
+[node name="AttackSideDialog" type="Control" unique_id=1676647124]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+script = ExtResource("1_ht85m")
+
+[node name="Dialog" parent="." unique_id=66265892 instance=ExtResource("3_d1y6l")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -55.5
+offset_right = 272.0
+offset_bottom = 55.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="Info" parent="Dialog/MarginContainer/VBoxContainer/Content" parent_id_path=PackedInt32Array(66265892, 49802641) index="0" unique_id=259648368 instance=ExtResource("4_5qgp5")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="Dialog/MarginContainer/VBoxContainer/Content" parent_id_path=PackedInt32Array(66265892, 49802641) index="1" unique_id=474347251]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextEdit" type="TextEdit" parent="Dialog/MarginContainer/VBoxContainer/Content" parent_id_path=PackedInt32Array(66265892, 49802641) index="2" unique_id=2139745623]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+placeholder_text = "Add message to public discussion"
+wrap_mode = 1
+
+[node name="Defense" parent="Dialog/MarginContainer/VBoxContainer/Buttons" parent_id_path=PackedInt32Array(66265892, 1298444312) index="0" unique_id=1147996059 instance=ExtResource("5_75kwd")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_an46g")
+text = "Join Defense"
+icon = ExtResource("5_d1y6l")
+
+[node name="Neutral" parent="Dialog/MarginContainer/VBoxContainer/Buttons" parent_id_path=PackedInt32Array(66265892, 1298444312) index="1" unique_id=1619861871 instance=ExtResource("5_75kwd")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_kcbli")
+text = "Stay Neutral"
+icon = ExtResource("6_75kwd")
+
+[node name="Attack" parent="Dialog/MarginContainer/VBoxContainer/Buttons" parent_id_path=PackedInt32Array(66265892, 1298444312) index="2" unique_id=1937403927 instance=ExtResource("5_75kwd")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pqa77")
+text = "Join Attack"
+icon = ExtResource("1_ckxik")
+
+[node name="Icon" parent="Dialog/Control/Title/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(66265892, 744011408) index="0" unique_id=917818684]
+texture = SubResource("CompressedTexture2D_5qgp5")
+
+[node name="Title" parent="Dialog/Control/Title/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(66265892, 744011408) index="1" unique_id=2141720592]
+text = "Choose Attack Side"
+
+[node name="CloseButton" parent="Dialog/Control" parent_id_path=PackedInt32Array(66265892, 1090258654) index="1" unique_id=1248636943]
+visible = false
+
+[editable path="Dialog"]

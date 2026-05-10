@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://epxlxbxqkxq1"]
+
+[ext_resource type="Theme" uid="uid://brryrwy431s5k" path="res://ui/common/theme.tres" id="1_48ufq"]
+[ext_resource type="Script" uid="uid://bm7w0iocpuaof" path="res://ui/dialogs/start_game_dialog.gd" id="2_nqj2s"]
+[ext_resource type="PackedScene" uid="uid://bdxsqwquejg0c" path="res://ui/common/dialog.tscn" id="3_kqtp8"]
+[ext_resource type="PackedScene" uid="uid://lm5v78efgrvf" path="res://ui/common/hint_label.tscn" id="4_aej0c"]
+[ext_resource type="PackedScene" uid="uid://wk5sbxatqx5" path="res://ui/common/submit_button.tscn" id="5_o2kfn"]
+[ext_resource type="Texture2D" uid="uid://bvrunmt6h477u" path="res://assets/icons/arrow_forward.svg" id="6_jix64"]
+
+[node name="StartGameDialog" type="Control" unique_id=341450363]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_48ufq")
+script = ExtResource("2_nqj2s")
+
+[node name="Dialog" parent="." unique_id=979694945 instance=ExtResource("3_kqtp8")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -84.5
+offset_right = 288.0
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Content" parent="Dialog/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(979694945, 63976594) index="0" unique_id=49802641]
+size_flags_vertical = 3
+
+[node name="HintLabel" parent="Dialog/MarginContainer/VBoxContainer/Content" index="0" unique_id=2070786868 instance=ExtResource("4_aej0c")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Press 'Open Survey' to complete a pre-game survey. After filling out the survey comeback to this screen."
+
+[node name="SubmitButton" parent="Dialog/MarginContainer/VBoxContainer/Buttons" parent_id_path=PackedInt32Array(979694945, 1298444312) index="0" unique_id=826173382 instance=ExtResource("5_o2kfn")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Open Survey"
+
+[node name="Icon" parent="Dialog/Control/Title/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(979694945, 744011408) index="0" unique_id=917818684]
+texture = ExtResource("6_jix64")
+
+[node name="Title" parent="Dialog/Control/Title/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(979694945, 744011408) index="1" unique_id=2141720592]
+text = "Archipelago Altercation"
+
+[node name="CloseButton" parent="Dialog/Control" parent_id_path=PackedInt32Array(979694945, 1090258654) index="1" unique_id=1248636943]
+visible = false
+
+[editable path="Dialog"]

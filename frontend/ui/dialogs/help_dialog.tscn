@@ -1,0 +1,224 @@
+[gd_scene format=3 uid="uid://tyextr88y81d"]
+
+[ext_resource type="Script" uid="uid://dayklxtbobpvw" path="res://ui/dialogs/help_dialog.gd" id="1_onbrd"]
+[ext_resource type="Theme" uid="uid://brryrwy431s5k" path="res://ui/common/theme.tres" id="2_onbrd"]
+[ext_resource type="PackedScene" uid="uid://bdxsqwquejg0c" path="res://ui/common/dialog.tscn" id="3_onbrd"]
+[ext_resource type="Texture2D" uid="uid://bvrunmt6h477u" path="res://assets/icons/arrow_forward.svg" id="6_onbrd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ohs3"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.3019608, 0.5568628, 0.78039217, 1)
+border_width_bottom = 2
+border_color = Color(0.22145814, 0.45353842, 0.65361756, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+shadow_color = Color(0, 0, 0, 0.2509804)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c4ggi"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.43358162, 0.723318, 0.38512114, 1)
+border_width_bottom = 2
+border_color = Color(0.32419813, 0.5593159, 0.28612503, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(0, 0, 0, 0.2509804)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+
+[node name="HelpDialog" type="Control" unique_id=987654001]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_onbrd")
+script = ExtResource("1_onbrd")
+
+[node name="Dialog" parent="." unique_id=66265892 instance=ExtResource("3_onbrd")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 512)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -112.0
+offset_right = 288.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Content" parent="Dialog/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(66265892, 63976594) index="0" unique_id=49802641]
+size_flags_vertical = 3
+
+[node name="Page1" type="VBoxContainer" parent="Dialog/MarginContainer/VBoxContainer/Content" index="0" unique_id=987654010 groups=["page"]]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="OverviewLabel" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content/Page1" unique_id=987654011]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Objective"
+autowrap_mode = 3
+
+[node name="OverviewLabel2" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content/Page1" unique_id=267644378]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+text = "Be the first player to reach 20 gold. Use strategy and diplomacy to outplay other players.
+Only one player can win. If multiple players reach 20+ gold simultaneously, the player with the most gold wins. Another round is played if the gold is tied."
+autowrap_mode = 3
+
+[node name="OverviewLabel3" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content/Page1" unique_id=730401036]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Overview"
+autowrap_mode = 3
+
+[node name="StatsLabel" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content/Page1" unique_id=987654013]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+text = "Each round players split ships between exploration and combat.
+- Exploring ships each bring back 1 gold at the end of the round (guaranteed income).
+- Ships kept at home are used for combat.
+- Splitting ships is a tradeoff between guaranteeed income and combat strength"
+autowrap_mode = 3
+
+[node name="Page2" type="VBoxContainer" parent="Dialog/MarginContainer/VBoxContainer/Content" index="1" unique_id=987654020 groups=["page"]]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="OverviewLabel" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content/Page2" unique_id=1499317907]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Exploration phase"
+autowrap_mode = 3
+
+[node name="ExploreLabel" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content/Page2" unique_id=987654021]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+text = "All players secretly choose how many ships to send exploring. Players may bluff or misrepresent this number to other players."
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="Dialog/MarginContainer/VBoxContainer/Content/Page2" unique_id=987654023]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Page3" type="VBoxContainer" parent="Dialog/MarginContainer/VBoxContainer/Content" index="2" unique_id=987654030 groups=["page"]]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="OverviewLabel" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content/Page3" unique_id=1290191920]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Attack phase"
+autowrap_mode = 3
+
+[node name="AttackLabel" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content/Page3" unique_id=987654031]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+text = "After exploration, one player is randomly chosen as the attacker. The attack phase then unfolds in three steps:"
+autowrap_mode = 3
+
+[node name="RolesContainer" type="VBoxContainer" parent="Dialog/MarginContainer/VBoxContainer/Content/Page3" unique_id=987654032]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AttackerRole" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content/Page3/RolesContainer" unique_id=987654033]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+text = "Attacker — Chooses a target and optionally invite allies to join."
+autowrap_mode = 3
+
+[node name="DefenderRole" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content/Page3/RolesContainer" unique_id=987654034]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+text = "Defender — When attacked, invites allies to help you defend."
+autowrap_mode = 3
+
+[node name="SidesRole" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content/Page3/RolesContainer" unique_id=987654035]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+text = "Invited players — Choose to join the attack side, the defense side, or stay neutral."
+autowrap_mode = 3
+
+[node name="HSeparator2" type="HSeparator" parent="Dialog/MarginContainer/VBoxContainer/Content/Page3" unique_id=987654036]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="OutcomeLabel" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content/Page3" unique_id=987654037]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+text = "The winners capture half of each losers' gold and split it equally. The remainder is given to the leader."
+autowrap_mode = 3
+
+[node name="Page4" type="VBoxContainer" parent="Dialog/MarginContainer/VBoxContainer/Content" index="3" unique_id=362632733 groups=["page"]]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="OverviewLabel" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content/Page4" unique_id=418578400]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Resolution"
+autowrap_mode = 3
+
+[node name="AttackLabel" type="Label" parent="Dialog/MarginContainer/VBoxContainer/Content/Page4" unique_id=812195753]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+text = "The side with more home ships wins, tie-breaker goes to defenders.
+After combat, all players collect gold from their exploring ships (1 gold per ship sent).
+All ships return home and next round starts"
+autowrap_mode = 3
+
+[node name="HSeparator2" type="HSeparator" parent="Dialog/MarginContainer/VBoxContainer/Content/Page4" unique_id=526877032]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BackButton" type="Button" parent="Dialog/MarginContainer/VBoxContainer/Buttons" parent_id_path=PackedInt32Array(66265892, 1298444312) index="0" unique_id=987654040]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ohs3")
+text = "Back"
+
+[node name="NextButton" type="Button" parent="Dialog/MarginContainer/VBoxContainer/Buttons" parent_id_path=PackedInt32Array(66265892, 1298444312) index="1" unique_id=987654041]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_c4ggi")
+text = "Next"
+
+[node name="Icon" parent="Dialog/Control/Title/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(66265892, 744011408) index="0" unique_id=917818684]
+texture = ExtResource("6_onbrd")
+
+[node name="Title" parent="Dialog/Control/Title/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(66265892, 744011408) index="1" unique_id=2141720592]
+text = "How to Play"
+
+[editable path="Dialog"]

@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://c40yourebsju5"]
+
+[ext_resource type="Script" uid="uid://dbicunanyb8ff" path="res://world/player_panel.gd" id="1_qvglg"]
+[ext_resource type="Texture2D" uid="uid://batjm2ypm5kx" path="res://assets/avatars/red.svg" id="2_j3ie6"]
+[ext_resource type="Texture2D" uid="uid://man84wo8y6r1" path="res://assets/icons/gold.svg" id="3_gold"]
+
+[node name="PlayerPanel" type="PanelContainer" unique_id=1860232828]
+offset_right = 1.0
+offset_bottom = 23.0
+script = ExtResource("1_qvglg")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1342399147]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=657717709]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1144652540]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Avatar" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=307762939]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_j3ie6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=500000001]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=2143355571]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+text = "Player Name"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=500000002]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("3_gold")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Gold" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=500000003]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+text = "10"
+
+[node name="AttackGoldChange" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=500000004]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ExplorationGoldChange" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=500000005]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="LastMessage" type="Label" parent="MarginContainer/VBoxContainer" unique_id=138619431]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+autowrap_mode = 3

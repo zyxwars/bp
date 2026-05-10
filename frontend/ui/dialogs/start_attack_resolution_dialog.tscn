@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bdyndou66fkhj"]
+
+[ext_resource type="Theme" uid="uid://brryrwy431s5k" path="res://ui/common/theme.tres" id="1_gj704"]
+[ext_resource type="Script" uid="uid://bcjxvbklwpxk5" path="res://ui/dialogs/start_attack_resolution_dialog.gd" id="2_36vh2"]
+[ext_resource type="PackedScene" uid="uid://bdxsqwquejg0c" path="res://ui/common/dialog.tscn" id="3_xc28g"]
+[ext_resource type="PackedScene" uid="uid://lm5v78efgrvf" path="res://ui/common/hint_label.tscn" id="4_63nfb"]
+[ext_resource type="PackedScene" uid="uid://wk5sbxatqx5" path="res://ui/common/submit_button.tscn" id="5_atfgl"]
+[ext_resource type="Texture2D" uid="uid://bvrunmt6h477u" path="res://assets/icons/arrow_forward.svg" id="6_x2ild"]
+
+[node name="StartAttackResolution" type="Control" unique_id=341450363]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_gj704")
+script = ExtResource("2_36vh2")
+
+[node name="Dialog" parent="." unique_id=66265892 instance=ExtResource("3_xc28g")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -111.0
+offset_right = 544.0
+offset_bottom = 0.0
+grow_vertical = 0
+
+[node name="HintLabel" parent="Dialog/MarginContainer/VBoxContainer/Content" parent_id_path=PackedInt32Array(66265892, 49802641) index="0" unique_id=259648368 instance=ExtResource("4_63nfb")]
+layout_mode = 2
+text = "Press 'Continue' to start combat"
+
+[node name="SubmitButton" parent="Dialog/MarginContainer/VBoxContainer/Buttons" parent_id_path=PackedInt32Array(66265892, 1298444312) index="0" unique_id=1619861871 instance=ExtResource("5_atfgl")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Continue"
+
+[node name="Icon" parent="Dialog/Control/Title/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(66265892, 744011408) index="0" unique_id=917818684]
+texture = ExtResource("6_x2ild")
+
+[node name="Title" parent="Dialog/Control/Title/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(66265892, 744011408) index="1" unique_id=2141720592]
+text = "Combat"
+
+[node name="CloseButton" parent="Dialog/Control" parent_id_path=PackedInt32Array(66265892, 1090258654) index="1" unique_id=1248636943]
+visible = false
+
+[editable path="Dialog"]

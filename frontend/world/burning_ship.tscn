@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://scgghrhlxu2a"]
+
+[ext_resource type="PackedScene" uid="uid://xk500q20rbdg" path="res://assets/models/Sail Ship.glb" id="2_b6pau"]
+[ext_resource type="PackedScene" uid="uid://bfwjl2udm6771" path="res://world/fire_particles.tscn" id="3_8yk83"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gpchw"]
+radius = 2.5
+
+[node name="BurningShip" type="StaticBody3D" unique_id=1316418536]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=853930805]
+shape = SubResource("CylinderShape3D_gpchw")
+
+[node name="Model" parent="." unique_id=278791393 instance=ExtResource("2_b6pau")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="FireParticles" parent="." unique_id=18576300 instance=ExtResource("3_8yk83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64280844, 0)

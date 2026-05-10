@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cwe31pcks7jkh"]
+
+[ext_resource type="Script" uid="uid://bb313eri0glr2" path="res://ui/attacker_picker_animation.gd" id="1_csu2m"]
+[ext_resource type="Texture2D" uid="uid://batjm2ypm5kx" path="res://assets/avatars/red.svg" id="2_78tma"]
+[ext_resource type="Theme" uid="uid://brryrwy431s5k" path="res://ui/common/theme.tres" id="3_a7lrn"]
+[ext_resource type="StyleBox" uid="uid://xwx28lf622f8" path="res://ui/common/container.stylebox" id="4_ki02l"]
+
+[node name="AttackerPickerAnimation" type="VBoxContainer" unique_id=102448306]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 16
+script = ExtResource("1_csu2m")
+
+[node name="Avatar" type="TextureRect" parent="." unique_id=1222295616]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_78tma")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="LabelContainer" type="PanelContainer" parent="." unique_id=1795079345]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_a7lrn")
+theme_override_styles/panel = ExtResource("4_ki02l")
+
+[node name="MarginContainer" type="MarginContainer" parent="LabelContainer" unique_id=1052190954]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="LabelContainer/MarginContainer" unique_id=1823693389]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Red was chosen as attacker"

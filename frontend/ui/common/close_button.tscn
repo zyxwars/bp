@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d2d40vcltaew8"]
+
+[ext_resource type="Texture2D" uid="uid://cvyc3slm1cquo" path="res://assets/icons/close.svg" id="1_ru62v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dl2vv"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.91590685, 0.25246483, 0.358192, 1)
+border_width_bottom = 2
+border_color = Color(0.7952594, 0.17315233, 0.28759786, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(0, 0, 0, 0.2509804)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+
+[node name="CloseButton" type="Button" unique_id=1248636943]
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_dl2vv")
+icon = ExtResource("1_ru62v")

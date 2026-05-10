@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://djle5ue8qso7c"]
+
+[ext_resource type="Theme" uid="uid://brryrwy431s5k" path="res://ui/common/theme.tres" id="1_g2mey"]
+[ext_resource type="Script" uid="uid://djioyo2djfsq6" path="res://ui/status/round_status.gd" id="1_n70yd"]
+[ext_resource type="StyleBox" uid="uid://xwx28lf622f8" path="res://ui/common/container.stylebox" id="2_d4hnm"]
+
+[node name="RoundStatus" type="PanelContainer" unique_id=1795079345]
+offset_right = 33.0
+offset_bottom = 55.0
+theme = ExtResource("1_g2mey")
+theme_override_styles/panel = ExtResource("2_d4hnm")
+script = ExtResource("1_n70yd")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1052190954]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1823693389]
+unique_name_in_owner = true
+layout_mode = 2

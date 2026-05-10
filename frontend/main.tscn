@@ -1,0 +1,203 @@
+[gd_scene format=3 uid="uid://b4rxli7jwu13s"]
+
+[ext_resource type="Script" uid="uid://boemoyhki2ycj" path="res://core/game_manager.gd" id="1_6lvsd"]
+[ext_resource type="Script" uid="uid://ob7x4s0xsk7c" path="res://main.gd" id="1_getpj"]
+[ext_resource type="Script" uid="uid://xf6udlcd61pi" path="res://core/llm_manager.gd" id="2_7udvg"]
+[ext_resource type="PackedScene" uid="uid://ci77pevgbfxf1" path="res://world/world.tscn" id="3_cegan"]
+[ext_resource type="Script" uid="uid://d01ao7nfcjcnk" path="res://ui/game_ui.gd" id="3_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://djle5ue8qso7c" path="res://ui/status/round_status.tscn" id="4_w48qg"]
+[ext_resource type="PackedScene" uid="uid://cwe31pcks7jkh" path="res://ui/attacker_picker_animation.tscn" id="7_getpj"]
+[ext_resource type="PackedScene" uid="uid://dymo8v2psnfbu" path="res://ui/dialogs/start_attack_phase_dialog.tscn" id="9_yaehf"]
+[ext_resource type="PackedScene" uid="uid://bdyndou66fkhj" path="res://ui/dialogs/start_attack_resolution_dialog.tscn" id="10_074og"]
+[ext_resource type="PackedScene" uid="uid://dhifipw3hsgp7" path="res://ui/dialogs/defense_dialog.tscn" id="16_cegan"]
+[ext_resource type="PackedScene" uid="uid://cbv83v177703q" path="res://ui/dialogs/attack_dialog.tscn" id="16_ryguw"]
+[ext_resource type="PackedScene" uid="uid://nm2b45o07nu" path="res://ui/dialogs/exploration_dialog.tscn" id="18_1u8w0"]
+[ext_resource type="PackedScene" uid="uid://673pppo03foe" path="res://ui/round_info.tscn" id="19_d13ii"]
+[ext_resource type="Texture2D" uid="uid://ck3twa3xyfc2j" path="res://assets/icons/help.svg" id="19_getpj"]
+[ext_resource type="Script" uid="uid://b5b7p2bo7gchn" path="res://ui/help_button.gd" id="20_ryguw"]
+[ext_resource type="PackedScene" uid="uid://d0nc7w2ogbptb" path="res://ui/dialogs/attack_side_dialog.tscn" id="24_xuqvo"]
+[ext_resource type="PackedScene" uid="uid://hesoqqvgxi6r" path="res://ui/dialogs/start_round_dialog.tscn" id="26_kq58d"]
+[ext_resource type="PackedScene" uid="uid://epxlxbxqkxq1" path="res://ui/dialogs/start_game_dialog.tscn" id="30_jq2sk"]
+[ext_resource type="PackedScene" uid="uid://wp7aix1jx2qa" path="res://ui/dialogs/network_error_dialog.tscn" id="30_kq58d"]
+[ext_resource type="PackedScene" uid="uid://cj4wi42y2jnp2" path="res://ui/dialogs/attack_resolved/attack_resolved_dialog.tscn" id="33_h8e4i"]
+[ext_resource type="PackedScene" uid="uid://tyextr88y81d" path="res://ui/dialogs/help_dialog.tscn" id="35_onbrd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ohs3"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.3019608, 0.5568628, 0.78039217, 1)
+border_width_bottom = 2
+border_color = Color(0.22145814, 0.45353842, 0.65361756, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+shadow_color = Color(0, 0, 0, 0.2509804)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+
+[node name="Main" type="Node" unique_id=1691094552]
+script = ExtResource("1_getpj")
+
+[node name="GameManager" type="Node" parent="." unique_id=267122233]
+script = ExtResource("1_6lvsd")
+
+[node name="LlmManager" type="Node" parent="." unique_id=1215793365]
+script = ExtResource("2_7udvg")
+
+[node name="World" parent="." unique_id=1480753212 instance=ExtResource("3_cegan")]
+
+[node name="UiManager" type="Control" parent="." unique_id=1100788567]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UiManager" unique_id=1794109361]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="GameUi" type="Control" parent="UiManager/MarginContainer" unique_id=80030767]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("3_ycdy4")
+
+[node name="RoundStatus" parent="UiManager/MarginContainer/GameUi" unique_id=1795079345 instance=ExtResource("4_w48qg")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.5
+offset_right = 16.5
+grow_horizontal = 2
+
+[node name="AttackerPickerAnimation" parent="UiManager/MarginContainer/GameUi" unique_id=1026453444 instance=ExtResource("7_getpj")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -77.5
+offset_right = 64.0
+offset_bottom = 77.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AttackDialog" parent="UiManager/MarginContainer/GameUi" unique_id=1190784144 instance=ExtResource("16_ryguw")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DefenseDialog" parent="UiManager/MarginContainer/GameUi" unique_id=854933895 instance=ExtResource("16_cegan")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AttackSideDialog" parent="UiManager/MarginContainer/GameUi" unique_id=1676647124 instance=ExtResource("24_xuqvo")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ExplorationDialog" parent="UiManager/MarginContainer/GameUi" unique_id=718120999 instance=ExtResource("18_1u8w0")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartAttackPhaseDialog" parent="UiManager/MarginContainer/GameUi" unique_id=341450363 instance=ExtResource("9_yaehf")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="StartAttackResolution" parent="UiManager/MarginContainer/GameUi" unique_id=373913051 instance=ExtResource("10_074og")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="StartRoundDialog" parent="UiManager/MarginContainer/GameUi" unique_id=1241528175 instance=ExtResource("26_kq58d")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -1048.0
+offset_right = 1888.0
+grow_vertical = 0
+
+[node name="AttackResolvedDialog" parent="UiManager/MarginContainer/GameUi" unique_id=491340437 instance=ExtResource("33_h8e4i")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HelpButton" type="Button" parent="UiManager/MarginContainer/GameUi" unique_id=1619861871]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -118.0
+offset_bottom = 32.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ohs3")
+text = "Open Help"
+icon = ExtResource("19_getpj")
+script = ExtResource("20_ryguw")
+
+[node name="RoundInfo" parent="UiManager/MarginContainer/GameUi" unique_id=728834783 instance=ExtResource("19_d13ii")]
+layout_mode = 0
+
+[node name="HelpDialog" parent="UiManager/MarginContainer" unique_id=987654001 instance=ExtResource("35_onbrd")]
+layout_mode = 2
+
+[node name="StartGameDialog" parent="UiManager/MarginContainer" unique_id=2063013835 instance=ExtResource("30_jq2sk")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NetworkErrorDialog" parent="UiManager" unique_id=879876917 instance=ExtResource("30_kq58d")]
+visible = false
+layout_mode = 1

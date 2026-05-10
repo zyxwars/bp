@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dn0hj1jp4kd05"]
+
+[ext_resource type="Texture2D" uid="uid://cvyc3slm1cquo" path="res://assets/icons/close.svg" id="1_c5m6t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ohs3"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.9137255, 0.2509804, 0.35686275, 1)
+border_width_bottom = 2
+border_color = Color(0.79607844, 0.17254902, 0.28627452, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+shadow_color = Color(0, 0, 0, 0.2509804)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+
+[node name="CancelButton" type="Button" unique_id=1271449067]
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ohs3")
+text = "Reject"
+icon = ExtResource("1_c5m6t")

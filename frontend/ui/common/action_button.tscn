@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c8pevvte1mrv3"]
+
+[ext_resource type="Texture2D" uid="uid://ditg258tvtltv" path="res://assets/icons/swap.svg" id="1_7dyow"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xu6ly"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.3019608, 0.5568628, 0.78039217, 1)
+border_width_bottom = 8
+border_color = Color(0.22820279, 0.46353585, 0.66664976, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+shadow_color = Color(0, 0, 0, 0.2509804)
+shadow_size = 4
+shadow_offset = Vector2(0, 4)
+
+[node name="Button" type="Button" unique_id=1156946814]
+custom_minimum_size = Vector2(80, 80)
+tooltip_text = "Fortify"
+theme_override_styles/normal = SubResource("StyleBoxFlat_xu6ly")
+text = "Trade ships"
+icon = ExtResource("1_7dyow")

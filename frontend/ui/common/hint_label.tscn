@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://lm5v78efgrvf"]
+
+[node name="HintLabel" type="Label" unique_id=259648368]
+custom_minimum_size = Vector2(512, 0)
+text = "Hint text"
+autowrap_mode = 3

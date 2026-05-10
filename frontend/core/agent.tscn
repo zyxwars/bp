@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b0wr800x03u10"]
+
+[ext_resource type="Script" uid="uid://djno13advpygl" path="res://core/agent.gd" id="1_alesm"]
+
+[node name="Agent" type="Node" unique_id=1462212636]
+script = ExtResource("1_alesm")

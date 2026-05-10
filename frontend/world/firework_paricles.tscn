@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cy6dy2e74dqri"]
+
+[sub_resource type="Curve" id="Curve_x2huj"]
+_limits = [0.0, 1.0, 0.0, 2.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(2, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_v8wu1"]
+curve = SubResource("Curve_x2huj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pm3gm"]
+lifetime_randomness = 0.3
+emission_shape_scale = Vector3(8, 8, 8)
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, -1, 0)
+scale_min = 0.19999999
+scale_max = 0.39999998
+scale_curve = SubResource("CurveTexture_v8wu1")
+color = Color(0.50059307, 0.42137608, 0.06474716, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_prujl"]
+blend_mode = 1
+vertex_color_use_as_albedo = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_7p7b1"]
+material = SubResource("StandardMaterial3D_prujl")
+
+[node name="Node3D" type="Node3D" unique_id=1623931119]
+
+[node name="FireworkParticles" type="GPUParticles3D" parent="." unique_id=1403464955]
+amount = 128
+lifetime = 3.0
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_pm3gm")
+draw_pass_1 = SubResource("SphereMesh_7p7b1")
