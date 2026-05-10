@@ -1,169 +1,162 @@
-# Experimental reproducibility and integration
+# Technical Documentation
 
-All data and code are publicly available on GitHub (https://github.com/zyxwars/bp)
+## Setup
 
-## Prerequisites
+Docker version compatible with 28.4.0 is required to run the containerized frontend and backend.
 
-### Docker
+To connect to model providers an API key for OpenRouter is required (https://openrouter.ai/). The project requires setting the `OPENROUTER_API_KEY` environment variable.
 
-To ensure smooth and reproducible setup we provide docker containers with pre-configured settings. To run the code install a docker version compatible with 28.4.0
-(https://www.docker.com/)
+(Optional) If you also want to run the jupyter notebooks for visualization install Python version compatible with 3.12.3.
 
-### OpenRouter
+## Installation Manual
 
-To connect to LLM providers an API key for OpenRouter (https://openrouter.ai/) is required. We utilize OpenRouter due to their wide selection of models including free and paid providers through a unified API. The platform also provides built-in cost monitoring and allows connecting to LLM observability and tracing platforms such as LangFuse (https://langfuse.com/).
+1. Clone the project from GitHub (https://github.com/zyxwars/bp) OR unzip ZIP file
+2. (Optional) Install visualization dependencies `pip install -r data/requirements.txt`
 
-## Run the full game
+## User's Manual
+
+### Run the Full Game - Main option
+
+![Game open in a browser window on localhost port 8000](assets/images/game-browser.png)
 
 The provided docker compose file builds the client artifacts and serves them using nginx. The nginx server also proxies requests to the backend. Use this option for an end-to-end game deployment.
 
-The command requires an `OPENROUTER_API_KEY` environment variable and docker volumes to persist simulation logs and read configuration from.
+1. Start containers `OPENROUTER_API_KEY=your-api-key docker compose up`
+2. Open http://localhost:8000 in your browser.
+3. Wait for the game to load and click `Start Game`.
 
-```
-OPENROUTER_API_KEY=your-api-key docker compose up
-```
+### Run a Simulation (No gui/human player)
 
-After starting, the game will be accessible from your browser at http://localhost:8000
+This command uses `gameConfig.ts` provided in `./data/simulation/` to pin the exact model selection and game configuration used we used when testing agent-only games.
 
-## Run a simulation
-
-This command uses `gameConfig.ts` to pin the exact model selection and game configuration used in the simulations. The `gameConfig.ts` provided in `./data/simulation/` contains the settings from the paper.
-
-The command requires an `OPENROUTER_API_KEY` environment variable and a docker volume to persist simulation logs and read configuration from.
+1. Build only backend image and run simulation:
 
 ```
 docker build -t backend:latest ./backend
 docker run \
-  -e OPENROUTER_API_KEY=your-api-key \
-  -v "./data:/app/data" \
-  -v "./data/simulation/gameConfig.ts:/app/src/config/gameConfig.ts:ro" \
-  backend:latest \
-  pnpm start:simulate
+ -e OPENROUTER_API_KEY=your-api-key \
+ -v "./data:/app/data" \
+ -v "./data/simulation/gameConfig.ts:\
+ /app/src/config/gameConfig.ts:ro" \
+ backend:latest pnpm start:simulate
 ```
 
-## Logging
+### Data collection
 
-Game event logs are written to the mounted `data` directory in a newline-delimited JSON format (one self-contained event record per line), which can be replayed or analysed independently. The LLM-as-Judge script (`./backend/src/cli/judge.ts`) reads these logs and produces per-agent evaluation scores for initiative, honesty, and land captured.
+#### Sessions logs
 
-## Human evaluation
+Session data is recorded automatically under `./data/userId-sessionId.jsonl` in your current working directory after you start a game sessions.
 
-The human evaluation study used the full game client-server setup deployed on public infrastructure. To replicate a similar study setup, enable the forms in `./frontend/config.cfg` and supply the pre-game and post-game Google Form URLs. The game automatically pre-fills the `user_id` field so responses can be matched to session logs.
+#### External survey intergration
 
-Session logs produced during the study are archived alongside the simulation logs in the `./data/` directory. The anonymised raw responses from the Google Forms are also included in `./data/survey_raw.csv` so that the qualitative scoring can be independently verified.
+If you wish to replicate or extend our study you can provide google forms urls in the game.
 
-## Data analysis
+1. In `./frontend/config.cfg`, set `forms_enabled=true` and provide the pre-game and post-game Google Form URLs.
+2. Run the full game from Section~\ref{subsec:Run-Full-Game}.
 
-We provide the LLM-as-Judge script `./backend/src/cli/judge.ts` and jupyter notebooks used for visualization in `./data/` (`gameplay.ipynb`, `labels.ipynb`, `survey.ipynb`).
+### Data Analysis
 
-## Advanced setup
+#### Labeling
+
+1. Run the judge script using the same command used in
+   Section~\ref{subsec:Run-Simulation}, replacing
+   `pnpm start:simulate` with `pnpm start:judge <path-to-session-to-judge>`.
+2. After finishing the script should output `<path-to-session-to-judge>-labels.jsonl`
+
+#### Visualization
+
+1. Open the notebooks in `./data/{gameplay.ipynb, labels.ipynb, survey.ipynb}` with standard Jupyter tools.
+
+## Developer Manual
 
 ### Backend
 
-#### Install
+**Install**
 
-- Install a Node.js version compatible with the one specified in `./backend/.nvmrc` (https://nodejs.org/en/download)
-- Install pnpm in a version compatible with the one specified in `./backend/package.json` (https://pnpm.io/)
+1. Install a Node.js version compatible with
+   `./backend/.nvmrc`.
+2. Install Pnpm in a version compatible with
+   `./backend/package.json` and install dependencies using `pnpm install`.
 
-#### Configuration
+**Configuration**
 
-- `./backend/src/config/config.ts` — server and runtime settings
-- `./backend/src/config/gameConfig.ts` — model selection and game rules (keep in sync with frontend constants)
+1. `./backend/src/config/config.ts` --- server and
+   runtime settings.
+2. `./backend/src/config/gameConfig.ts` --- model
+   selection and game rules (keep in sync with frontend constants).
 
-#### Run
+**Run**
 
 ```
 pnpm start:server
 pnpm start:simulate
 
 # Dev scripts automatically load .env if present in ./backend/.env
+
 pnpm dev:server
 pnpm dev:simulate
 ```
 
 ### Frontend
 
-#### Install Godot
+**Install Godot**
 
-- Install a compatible Godot version (https://godotengine.org/download/archive/4.6.1-stable/)
+1. Install Godot (https://godotengine.org/download/archive/4.6.1-stable/).
 
-#### Run from editor (debug)
+**Run from Editor (Debug)**
 
-- Open the project in Godot
-- Press `Shift+F5` or select `Remote Deploy/Run in Browser` in the top right menu
-- This starts a local debug build at http://localhost:8060/tmp_js_export.html
+1. Open the project in Godot.
+2. Press `Shift+F5` or select `Remote Deploy/Run in Browser` in the top right menu.
+3. Open http://localhost:8060/tmp_js_export.html in your browser.
 
-#### Run from CLI (release)
+**Run from CLI (Release)**
 
-Build the project (make sure `godot` is on your PATH, or use an absolute path):
+1. Build the project (`godot` must be on your PATH):
 
 ```
 mkdir -p build && godot --headless --export-release "Web"
 ```
 
-Serve the build output:
+2. Serve the build output:
 
 ```
 python3 -m http.server -d ./build
 ```
 
-Navigate to http://localhost:8000
+3. Open http://localhost:8000 in your browser.
 
-For public internet exposure, replace the Python dev server with a production-grade solution. See https://docs.godotengine.org/en/4.6/tutorials/export/exporting_for_web.html for more details.
+#### Configuration
 
-### Configuration
-
-Edit `./frontend/config.cfg` to point the frontend at your backend and optionally enable surveys:
+1. Edit `./frontend/config.cfg` to point the frontend
+   at your backend and optionally enable surveys:
 
 ```
 [network]
 ; Backend url for llm services and logging
 backend_url="http://localhost:8000/backend"
+; Use backend_url="http://localhost:3000" if not running docker compose
 
 [forms]
 ; Whether to show surveys at the start and end of the game
 forms_enabled=false
 ; NOTE: user_id will be pre-filled
-; ex. https://docs.google.com/forms/d/e/MY_FORM_URL/viewform?usp=pp_url&entry.1234=
+; ex. https://docs.google.com/forms/d/e/MY_FORM_URL/
+; viewform?usp=pp_url&entry.1234=
 ; entry will be pre-filled as entry.1234=user_id
 pregame_form=""
 postgame_form=""
 ```
 
-Game rule constants in `./frontend/core/state/state.gd` must be kept in sync with the backend prompts:
+2. Keep game rule constants in
+   `./frontend/core/state/state.gd` in sync with the
+   backend prompts:
 
 ```
+
 # NOTE: KEEP IN SYNC WITH BACKEND PROMPTS
+
 const SHIP_COUNT = 5;
 const STARTING_GOLD = 3;
 const WIN_GOLD = 20;
 const MAX_MEMORY_SIZE = 30
 ```
-
-## Asset licensing
-
-### Icons
-
-- https://fonts.google.com/icons
-- Apache License 2.0
-
-### Buildings
-
-- https://quaternius.com/packs/ultimatefantasyrts.html
-- Creative Commons CC0 1.0 Universal License
-
-### Sail Ship
-
-- https://quaternius.com/packs/ships.html
-- Creative Commons CC0 1.0 Universal License
-
-### Island textures
-
-- https://ambientcg.com/view?id=Rock030
-- https://ambientcg.com/view?id=Moss002
-- https://ambientcg.com/view?id=Ground054
-- Creative Commons CC0 1.0 Universal License
-
-### Smoke texture used in flame particles
-
-- https://brackeysgames.itch.io/brackeys-vfx-bundle
-- Creative Commons CC0 1.0 Universal License

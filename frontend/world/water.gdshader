@@ -1,6 +1,6 @@
 // https://docs.godotengine.org/en/3.1/tutorials/shading/your_first_shader/your_second_spatial_shader.html
 // https://gameidea.org/2026/02/01/creating-a-stylized-3d-water-shader/
-// Generative AI 
+// This asset was created with the use of Generative AI
 shader_type spatial;
 render_mode depth_draw_opaque;
 
