@@ -158,3 +158,32 @@ const STARTING_GOLD = 3;
 const WIN_GOLD = 20;
 const MAX_MEMORY_SIZE = 30
 ```
+
+## Assets
+
+### Icons
+
+- https://fonts.google.com/icons
+- Apache License 2.0
+
+### Buildings
+
+- https://quaternius.com/packs/ultimatefantasyrts.html
+- Creative Commons CC0 1.0 Universal License
+
+### Sail Ship
+
+- https://quaternius.com/packs/ships.html
+- Creative Commons CC0 1.0 Universal License
+
+### Island textures
+
+- https://ambientcg.com/view?id=Rock030
+- https://ambientcg.com/view?id=Moss002
+- https://ambientcg.com/view?id=Ground054
+- Creative Commons CC0 1.0 Universal License
+
+### Smoke texture used in flame particles
+
+- https://brackeysgames.itch.io/brackeys-vfx-bundle
+- Creative Commons CC0 1.0 Universal License
