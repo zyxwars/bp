@@ -10,14 +10,12 @@ To connect to model providers an API key for OpenRouter is required (https://ope
 
 ## Installation Manual
 
-1. Clone the project from GitHub (https://github.com/zyxwars/bp) OR unzip ZIP file
+1. Clone the project from GitHub (https://github.com/zyxwars/bp), requires git-lfs for large assets, OR unzip ZIP file
 2. (Optional) Install visualization dependencies `pip install -r data/requirements.txt`
 
 ## User's Manual
 
 ### Run the Full Game - Main option
-
-![Game open in a browser window on localhost port 8000](assets/images/game-browser.png)
 
 The provided docker compose file builds the client artifacts and serves them using nginx. The nginx server also proxies requests to the backend. Use this option for an end-to-end game deployment.
 
